@@ -1,0 +1,3 @@
+[submodule "topology-spring-boot-fw-build"]
+	path = topology-spring-boot-fw-build
+	url = https://github.com/topology-lab/topology-spring-boot-fw-build.git
