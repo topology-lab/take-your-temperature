@@ -1,0 +1,6 @@
+apply from: "${topologyFwBuildPath}/application.gradle"
+
+dependencies {
+//	compile project('topology-spring-boot-fw-rest-api-server')
+//	testCompile project('topology-spring-boot-fw-testing')
+}

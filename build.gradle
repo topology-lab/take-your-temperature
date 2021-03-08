@@ -1,24 +1,21 @@
-plugins {
-	id 'org.springframework.boot' version '2.5.0-SNAPSHOT'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+apply plugin: 'java-library'
+
+buildscript {
+	ext {
+		topologyFwBuildPath = "${rootDir}/topology-spring-boot-fw-build/gradle"
+		jacocoTargetProjects = [
+				'your-temperature-rest-api',
+		]
+	}
+
+	apply from: "${topologyFwBuildPath}/buildscript.gradle"
 }
 
-group = 'com.topology'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+subprojects {
+	apply from: "${topologyFwBuildPath}/subprojects.gradle"
 
-repositories {
-	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
+	group = 'com.topology'
+	version = '1.0.0-SNAPSHOT'
 }
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-test {
-	useJUnitPlatform()
-}
+apply from: "${topologyFwBuildPath}/rootproject.gradle"
